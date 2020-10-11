@@ -47,3 +47,44 @@ export function getEarning(fname: string, lname: string, callback: any) {
     }, interval)
 };
 
+export function getFirstNameAsPromise(name: string) {
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const found = heros.find(x => x.fname == name);
+            if(found) {
+                resolve(found.fname);
+            } else {
+                reject("Joker");
+            }
+        }, interval)    
+    })
+};
+
+export function getLastNameAsPromise(name: string) {
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const found = heros.find(x => x.fname == name);
+            if(found) {
+                resolve(found.lname)
+            } else {
+                reject("Joker");
+            }
+        }, interval)    
+    })
+};
+
+export function getEarningsAsPromise(fname: string, lname: string) {
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const found = heros.find(x => x.fname == fname && x.lname == lname);
+            if(found) {
+                resolve(found.earning);
+            } else {
+                reject("Loser");
+            }
+        }, interval)    
+    })
+};
